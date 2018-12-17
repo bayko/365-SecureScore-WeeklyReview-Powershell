@@ -1,6 +1,10 @@
 #Requires -RunAsAdministrator 
 $Username = $args[0]
 $Password = $args[1]
+if ((!$Username) -or (!$Password)){
+    Write-Host 'You must supply global admin credentials as parameters when executing this script ( ie: C:\> .\STS-Office365-Provisioning.ps1 office365admin@company.com Password99 )' -foregroundcolor Red
+    Exit
+}
 $LoginUrl = "https://login.microsoftonline.com/login.srf"
 $LogoutUrl = "https://login.microsoftonline.com/logout.srf"
 
